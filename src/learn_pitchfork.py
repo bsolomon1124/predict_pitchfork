@@ -1,6 +1,6 @@
 """Predict 'Best New Music' label for Pitchfork album reviews."""
 
-# Run on AWS EC2 m5.4xlarge instance
+# Run on AWS EC2 m5.4xlarge instance - 20 min runtime.
 
 import os
 import pickle
@@ -26,8 +26,7 @@ from custom_scorers import wght_recall, wght_scorer  # noqa
 RANDOM_STATE = 444
 N_JOBS = -1
 TEST_SIZE = 0.33
-PATH = '/home/brad/pitchfork/'
-# PATH = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+PATH = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 
 df = pd.read_pickle(os.path.join(PATH, 'data/df2.pickle'))
 assert df.isnull().values.sum() == 0
